@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: gmanallen
+Build-Jdk: 13.0.2
+Implementation-Title: CountrySpringBoot
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: CountrySpringBootGroup
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/CountrySpringBoot
+Created-By: Maven Integration for Eclipse
+
