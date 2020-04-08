@@ -17,50 +17,25 @@ public class CountryController {
     CountryClass germany = new CountryClass(4, "Germany", "Berlin", 83000000);
     
     CountryClass country = new CountryClass();
-    List<CountryClass> countryList = new ArrayList<>(
-    		Arrays.asList(unitedStates, unitedKingdom, france, spain, germany)
-    		);
-    
-    
+    List<CountryClass> countryList = new ArrayList<>(Arrays.asList(unitedStates, unitedKingdom, france, spain, germany));
     
     @GetMapping("/country") 
     public List<CountryClass> printAllCountries()
     {    	
     	return countryList; 
     }
-    
-//    @GetMapping("/country") 
-//    public String printCountries()
-//    {
-//    	String resultString = " ";
-//    	countryList.add(unitedStates);
-//    	countryList.add(unitedKingdom);
-//    	countryList.add(france);
-//    	countryList.add(spain);
-//    	countryList.add(germany);
-//    	
-//    	for(CountryClass i : countryList)
-//    	{
-//    		String temp = i.getName()+ " " + i.getCapital();
-//    		resultString.concat(temp + " ");
-//    	}
-//    	
-//    	System.out.println(resultString);
-//    	
-//    	return resultString; 
-//    }
-    
+       
     @GetMapping("/country/print") 
-    public String PrintAllCountriesString()
+    public String PrintAllCountriesConsole()
     {
-    	String resultString = "Country List --> ";
+    	String resultString = "Country List) \n";
     	   	
     	for (CountryClass c: countryList)
     	{
-    		String temp = "Country: " + c.getName() + ", Capital: " + c.getCapital();
-    		System.out.println(temp);
-    		resultString.concat(temp);
+    		String temp = "<---> Country: " + c.getName() + ", Capital: " + c.getCapital()+ " \n";
+    		resultString += temp;
     	}
+    	System.out.println(resultString);
     	return resultString; 
     }
     
