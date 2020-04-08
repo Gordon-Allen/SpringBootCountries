@@ -20,13 +20,13 @@ public class CountryController {
     List<CountryClass> countryList = new ArrayList<>(Arrays.asList(unitedStates, unitedKingdom, france, spain, germany));
     
     @GetMapping("/country") 
-    public List<CountryClass> printAllCountries()
+    public List<CountryClass> getAllCountries()
     {    	
     	return countryList; 
     }
        
     @GetMapping("/country/print") 
-    public String PrintAllCountriesConsole()
+    public String printAllCountriesString()
     {
     	String resultString = "Country List) \n";
     	   	
@@ -40,9 +40,10 @@ public class CountryController {
     }
     
     @GetMapping("/country/population/{name}") 
-    public String countryQuery(@PathVariable String name)
+    public String getCountryPopulation(@PathVariable String name)
     {
-    	switch(name) {
+    	switch(name)
+    	{
     	case "unitedstates":
 			country = unitedStates;
 			break;
