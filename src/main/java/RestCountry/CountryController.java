@@ -17,17 +17,15 @@ public class CountryController {
     CountryClass germany = new CountryClass(4, "Germany", "Berlin", 83000000);
     
     CountryClass country = new CountryClass();
-    List<CountryClass> countryList = new ArrayList<CountryClass>();    
+    List<CountryClass> countryList = new ArrayList<>(
+    		Arrays.asList(unitedStates, unitedKingdom, france, spain, germany)
+    		);
+    
+    
     
     @GetMapping("/country") 
     public List<CountryClass> printAllCountries()
-    {
-    	countryList.add(unitedStates);
-    	countryList.add(unitedKingdom);
-    	countryList.add(france);
-    	countryList.add(spain);
-    	countryList.add(germany);
-    	
+    {    	
     	return countryList; 
     }
     
@@ -51,6 +49,20 @@ public class CountryController {
 //    	
 //    	return resultString; 
 //    }
+    
+    @GetMapping("/country/print") 
+    public String PrintAllCountriesString()
+    {
+    	String resultString = "Country List --> ";
+    	   	
+    	for (CountryClass c: countryList)
+    	{
+    		String temp = "Country: " + c.getName() + ", Capital: " + c.getCapital();
+    		System.out.println(temp);
+    		resultString.concat(temp);
+    	}
+    	return resultString; 
+    }
     
     @GetMapping("/country/population/{name}") 
     public String countryQuery(@PathVariable String name)
